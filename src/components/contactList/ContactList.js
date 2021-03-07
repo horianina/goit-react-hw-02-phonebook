@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Item = styled.li`
   padding-bottom: 10px;
@@ -25,14 +25,14 @@ const Button = styled.button`
 `;
 const ContactList = ({ contacts, onRemoveContact }) => (
   <ul className="list">
-    {contacts.map((contact) => (
+    {contacts.map(contact => (
       <Item className="item" key={contact.id}>
-        {contact.name + ": " + contact.number}
+        {contact.name + ': ' + contact.number}
         {
           <Button
             className="button"
             type="button"
-            name="delte"
+            name="delete"
             onClick={() => onRemoveContact(contact.id)}
           >
             delete
@@ -50,7 +50,7 @@ ContactList.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-    })
+    }),
   ),
 };
 export default ContactList;

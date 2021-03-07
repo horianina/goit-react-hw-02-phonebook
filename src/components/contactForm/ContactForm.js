@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;
+
 const Label = styled.label`
   display: flex;
   flex-direction: column;
@@ -19,29 +20,30 @@ const Button = styled.button`
 
 class ContactForm extends Component {
   state = {
-    name: "",
-    number: "",
+    name: '',
+    number: '',
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { name, value } = e.currentTarget;
     this.setState({
       [name]: value,
     });
   };
-  handleNameChange = (event) => {
+
+  handleNameChange = event => {
     this.setState({ name: event.currentTarget.value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.onAddContact({ ...this.state });
 
-    this.setState({ name: "", number: "" });
+    this.setState({ name: '', number: '' });
   };
+
   render() {
     const { name, number } = this.state;
-
     return (
       <Form onSubmit={this.handleSubmit}>
         <Label>
@@ -67,7 +69,9 @@ class ContactForm extends Component {
     );
   }
 }
+
 ContactForm.propTypes = {
   onAddContact: PropTypes.func.isRequired,
 };
+
 export default ContactForm;
